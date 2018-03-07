@@ -6,13 +6,19 @@ public class Acceso
     private int hora;
     private int minutos;
     
-    public Acceso(int ano, int mes, int dia, int hora, int minutos)
+    /**
+     * Acceso Constructor
+     *
+     * @param momentoDeAcceso A parameter
+     */
+    public Acceso(String momentoDeAcceso)
     {
-        this.ano = ano;
-        this.mes = mes;
-        this.dia = dia;
-        this.hora = hora;
-        this.minutos = minutos;
+        String[] partesDeMomentoAcceso = momentoDeAcceso.split(" ");
+        ano = Integer.parseInt(partesDeMomentoAcceso[0]);
+        mes = Integer.parseInt(partesDeMomentoAcceso[1]);
+        dia = Integer.parseInt(partesDeMomentoAcceso[2]);
+        hora = Integer.parseInt(partesDeMomentoAcceso[3]);
+        minutos = Integer.parseInt(partesDeMomentoAcceso[4]);
     }
     
     public int getAno() 
