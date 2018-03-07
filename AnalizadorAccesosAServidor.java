@@ -63,7 +63,31 @@ public class AnalizadorAccesosAServidor
     
     public String paginaWebMasSolicitada() 
     {
-        return "";
+        String webMasSolicitada = null;
+        
+        int maxNumAccesosHastaAhora = 0;
+        
+        for (Acceso acceso : accesos) {
+            
+            String urlActual = acceso.getPaginaWeb();
+            int contadorAccesosUrlActual = 0;
+            
+            for(Acceso accesoBucleInterno : accesos) {
+                if (urlActual.equals(accesoBucleInterno.getPaginaWeb())){
+                    contadorAccesosUrlActual++;
+                }
+            }
+            
+            if(contadorAccesosUrlActual >= maxNumAccesosHastaAhora){
+                webMasSolicitada = urlActual;
+                maxNumAccesosHastaAhora = contadorAccesosUrlActual;
+            }
+        }
+        
+        if (webMasSolicitada == null) {
+            System.out.println("No hay datos de acceso.");
+        }
+        return webMasSolicitada;
     }
     
     public String clienteConMasAccesosExitosos()

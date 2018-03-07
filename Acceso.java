@@ -56,7 +56,7 @@ public class Acceso
     {
         return ip;
     }
-    
+
     public String getPaginaWeb()
     {
         return paginaWeb;
